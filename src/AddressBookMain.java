@@ -1,5 +1,33 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class AddressBookMain {
+    static Scanner scanner = new Scanner(System.in);
+    static ArrayList<Contact> addressBook = new ArrayList<Contact>();
+
+    // main method
     public static void main(String[] args) {
-        System.out.println("Welcome to Address Book Collection Program");
+        System.out.println("Welcome to the Address Book Collection Problem");
+        System.out.println("Enter a first name:");
+        String firstName = scanner.next();
+        System.out.println("Enter a last name:");
+        String lastName = scanner.next();
+        System.out.println("Enter a Address:");
+        String address = scanner.next();
+        System.out.println("Enter a City name:");
+        String city = scanner.next();
+        System.out.println("Enter a state:");
+        String state = scanner.next();
+        System.out.println("Enter a email:");
+        String email = scanner.next();
+        System.out.println("Enter a zip code:");
+        int zip = scanner.nextInt();
+        System.out.println("Enter a phone number:");
+        long phoneNumber = scanner.nextLong();
+
+        Contact details1 = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+        addressBook.add(details1);
+        System.out.print(addressBook);
+        System.out.println("Contact created successfully");
     }
 }

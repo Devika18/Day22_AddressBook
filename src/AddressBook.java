@@ -114,11 +114,11 @@ public class AddressBook {
         System.out.println("Enter Address Book System Name");
         String bookName = scanner.next();
         AddressBookMain address = addressBookMainMap.get(bookName);
-        AddressBookMain addressBookSystem = new AddressBookMain();
+        AddressBookMain addressBookMain = new AddressBookMain();
         if (address == null) {
             System.out.println("No book found this name");
         } else {
-            addressBookSystem.showAddressBookDetails();
+            addressBookMain.showAddressBookDetails();
         }
     }
 

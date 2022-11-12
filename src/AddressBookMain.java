@@ -51,9 +51,9 @@ public class AddressBookMain {
         System.out.println("Enter a email:");
         details.setEmail(scanner.next());
         System.out.println("Enter a zip code:");
-        details.setZip(scanner.nextInt());
+        details.setZip(scanner.next());
         System.out.println("Enter a phone number:");
-        details.setPhoneNumber(scanner.nextLong());
+        details.setPhoneNumber(scanner.next());
 
         addressBook.add(details);
         System.out.print(addressBook);
@@ -69,7 +69,7 @@ public class AddressBookMain {
                 System.out.println("select options");
                 System.out.println("\n0.First Name\n1.Last Name\n2.Address\n3.City\n4.State\n5.Zip\n6.Phone Number");
                 int editOption = scanner.nextInt();
-                //System.out.println("message"+editOption);
+
                 switch (editOption) {
                     case 1:
                         System.out.println("Enter a First name:");
@@ -95,11 +95,11 @@ public class AddressBookMain {
                         break;
                     case 6:
                         System.out.print("Enter a zip code:");
-                        addressBook.get(i).setZip(scanner.nextInt());
+                        addressBook.get(i).setZip(scanner.nextLine());
                         break;
                     case 7:
                         System.out.print("Enter a phone number:");
-                        addressBook.get(i).setPhoneNumber(scanner.nextLong());
+                        addressBook.get(i).setPhoneNumber(scanner.nextLine());
                         break;
                     case 8:
                         System.out.print("Enter a email:");
@@ -117,9 +117,9 @@ public class AddressBookMain {
     // Method to delete contact
     public void deleteContact() {
         System.out.println("confirm the name to delete contact");
-        String confirmName=scanner.next();
+        String confirmName = scanner.next();
         for (int i = 0; i < addressBook.size(); i++) {
-            if(addressBook.get(i).getFirstName().equals(confirmName));
+            if (addressBook.get(i).getFirstName().equals(confirmName)) ;
             Contact person = addressBook.get(i);
             addressBook.remove(person);
         }

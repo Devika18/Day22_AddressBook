@@ -12,7 +12,7 @@ public class AddressBook {
 
         boolean condition = true;
         while (condition) {
-            System.out.println("\n" + "1.AddNewAddressBook" + "\n" + "2.AddContact" + "\n" + "3.EditContact" + "\n" + "4.DeleteContact" + "\n" + "5.AddMultipleContact" + "\n" + "6.ShowAddressBookDetails" + "\n" + "7.SearchContactByCityOrState");
+            System.out.println("\n" + "1.AddNewAddressBook" + "\n" + "2.AddContact" + "\n" + "3.EditContact" + "\n" + "4.DeleteContact" + "\n" + "5.AddMultipleContact" + "\n" + "6.ShowAddressBookDetails" + "\n" + "7.SearchContactByCityOrState" + "\n" + "8.CountCity");
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
@@ -36,6 +36,8 @@ public class AddressBook {
                 case 7:
                     searchByCityOrState();
                     break;
+                case 8:
+                    countingCity();
                 default:
                     System.out.println("Exit");
             }
@@ -127,11 +129,23 @@ public class AddressBook {
         System.out.println("Enter the AddressBookName ");
         String bookName = scanner.next();
         AddressBookMain book = addressBookMainMap.get(bookName);
-        AddressBookMain addressBookSystem = new AddressBookMain();
+        AddressBookMain addressBookMain = new AddressBookMain();
         if (book == null) {
             System.out.println("No book found with these name");
         } else {
-            addressBookSystem.searchContactDetails();
+            addressBookMain.searchContactDetails();
+        }
+    }
+
+    public static void countingCity() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookMain book = addressBookMainMap.get(bookName);
+        AddressBookMain addressBookMain = new AddressBookMain();
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBookMain.countCity();
         }
     }
 }

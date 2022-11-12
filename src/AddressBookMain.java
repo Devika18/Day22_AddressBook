@@ -10,7 +10,7 @@ public class AddressBookMain {
     // main method
     public static void main(String[] args) {
         System.out.println("Welcome to the Address Book Problem");
-        AddressBookSystem addressBookList = new AddressBookSystem();
+        AddressBookMain addressBookList = new AddressBookMain();
         addressBookList.addContactDetails();
         boolean condition = true;
 
@@ -163,5 +163,47 @@ public class AddressBookMain {
                 System.out.println("Matches with city and state name contact is :" + person);
             }
         }
+    }
+
+    // Method to sort contact by person's name
+    public void sortByPersonName() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Contact book is empty");
+        } else {
+            addressBook.stream().sorted(Comparator.comparing(Contact::getFirstName)).forEach(System.out::println);
+        }
+    }
+
+    // method to sort contact by city
+    public void sortingByCity() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Contact book is empty");
+        } else {
+            addressBook.stream().sorted(Comparator.comparing(Contact::getCity)).forEach(System.out::println);
+        }
+    }
+
+    // Method to sort contact by state
+    public void sortingByState() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Contact book is empty");
+        } else {
+            addressBook.stream().sorted(Comparator.comparing(Contact::getState)).forEach(System.out::println);
+        }
+    }
+
+    // Method to sort contact by zip
+    public void sortingByZip() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Contact book is empty");
+        } else {
+            addressBook.stream().sorted(Comparator.comparing(Contact::getZip)).forEach(System.out::println);
+        }
+    }
+    public void countCity() {
+        System.out.println("Enter a city name ");
+        String input = scanner.next();
+        long count = addressBook.stream().filter(city -> city.getCity().equals(input)).count();
+        System.out.println("No of contacts Matched " + input + " city is : " + count);
     }
 }

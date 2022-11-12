@@ -87,6 +87,19 @@ public class Contact {
         this.email = email;
     }
 
+    public Contact(String firstName2, String lastName2, String address2, String city2, String state2, String email2,
+                   int zip2, long phoneNumber2) {
+        this.firstName=firstName2;
+        this.lastName=lastName2;
+        this.address=address2;
+        this.city=city2;
+        this.state=state2;
+        this.zip=zip2;
+        this.phoneNumber=phoneNumber2;
+        this.email=email2;
+        // TODO Auto-generated constructor stub
+    }
+
     @Override
     public String toString() {
         return "Person [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="

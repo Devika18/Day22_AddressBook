@@ -12,7 +12,7 @@ public class AddressBook {
 
         boolean condition = true;
         while (condition) {
-            System.out.println("\n" + "1.AddNewAddressBook" + "\n" + "2.AddContact" + "\n" + "3.EditContact" + "\n" + "4.DeleteContact" + "\n" + "5.AddMultipleContact" + "\n" + "6.ShowAddressBookDetails");
+            System.out.println("\n" + "1.AddNewAddressBook" + "\n" + "2.AddContact" + "\n" + "3.EditContact" + "\n" + "4.DeleteContact" + "\n" + "5.AddMultipleContact" + "\n" + "6.ShowAddressBookDetails" + "\n" + "7.SearchContactByCityOrState");
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
@@ -32,6 +32,9 @@ public class AddressBook {
                     break;
                 case 6:
                     showAddressBookDetails();
+                    break;
+                case 7:
+                    searchByCityOrState();
                     break;
                 default:
                     System.out.println("Exit");
@@ -116,6 +119,19 @@ public class AddressBook {
             System.out.println("No book found this name");
         } else {
             addressBookSystem.showAddressBookDetails();
+        }
+    }
+
+    // Method to search contact by city or state
+    public static void searchByCityOrState() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookMain book = addressBookMainMap.get(bookName);
+        AddressBookMain addressBookSystem = new AddressBookMain();
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBookSystem.searchContactDetails();
         }
     }
 }

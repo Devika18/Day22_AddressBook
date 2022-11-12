@@ -1,5 +1,5 @@
-import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -15,7 +15,7 @@ public class AddressBookMain {
         boolean condition = true;
 
         while (condition == true) {
-            System.out.println("1.AddContact" + "\n" + "2.EditContact" + "\n" + "3.DeleteContact" + "\n" + "4.AddMultipleContact" + "\n" + "5.ShowAddressBookDetails");
+            System.out.println("1.AddContact" + "\n" + "2.EditContact" + "\n" + "3.DeleteContact" + "\n" + "4.AddMultipleContact" + "\n" + "5.ShowAddressBookDetails" + "\n" + "6.SearchContactDetails");
             int option = scanner.nextInt();
 
             switch (option) {
@@ -33,6 +33,9 @@ public class AddressBookMain {
                     break;
                 case 5:
                     addressBookList.showAddressBookDetails();
+                    break;
+                case 6:
+                    addressBookList.searchContactDetails();
                     break;
                 default:
                     System.out.println("Invalid Input");
@@ -148,6 +151,17 @@ public class AddressBookMain {
         } else {
             Set<Contact> set = addressBook.stream().collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Contact::toString))));
             set.forEach(System.out::println);
+        }
+    }
+
+    //  Method to search contact details
+    public void searchContactDetails() {
+        System.out.println("Enter the city or state to search Contact ");
+        String input = scanner.next();
+        for (Contact person : addressBook) {
+            if (person.getCity().equals(input) || person.getState().equals(input)) {
+                System.out.println("Matches with city and state name contact is :" + person);
+            }
         }
     }
 }
